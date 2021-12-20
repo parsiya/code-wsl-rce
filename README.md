@@ -1,10 +1,12 @@
-# Proof of Concept for VS Code Remote WSL Remote Code Execution
+# Proof of Concept for VS Code Remote WSL Remote Code Execution - CVE-2021-43891
 See the blog at
 https://parsiya.net/blog/2021-12-20-rce-in-visual-studio-codes-remote-wsl-for-fun-and-negative-profit.
 
+Also https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-43891.
+
 ## Building
 
-1 `npm install`.
+1. `npm install`.
 2. Store `vsda.node` for your architecture in `/routes/vsda.node`.
 3. Run `npm start` or use `ctrl+shift+b` in VS Code.
 4. Open `http://localhost:3000` and follow the instructions.
