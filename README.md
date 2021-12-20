@@ -11,6 +11,11 @@ Also https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-43891.
 3. Run `npm start` or use `ctrl+shift+b` in VS Code.
 4. Open `http://localhost:3000` and follow the instructions.
 
+### Where is vsda.node?
+
+* Windows: `C:\Program Files\Microsoft VS Code\resources\app\node_modules.asar.unpacked\vsda\build\Release\vsda.node`.
+* Server (WSL): `~/.vscode-server/bin/{commit}/node_modules/vsda/build/Release/vsda.node`.
+
 ### Using the Node Inspector Instance and Popping Calc
 This probably only works locally because we need to connect directly to the
 Inspector instance.
