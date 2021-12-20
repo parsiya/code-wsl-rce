@@ -68,7 +68,6 @@ function postJSON(url = '', data = {}) {
     mode: 'cors', // no-cors, *cors, same-origin
     headers: {
       'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
     },
     referrerPolicy: 'no-referrer',
     body: data
@@ -145,14 +144,6 @@ function connectWS(port) {
     sendMessage(socket, authBytes);
   };
 
-  // Send any message in the form to the websocket.
-  // ZZZ Is this still needed?
-  // document.forms.publish.onsubmit = function() {
-  //     let outgoingMessage = this.message.value;
-  //     socket.send(outgoingMessage);
-  //     return false;
-  // };
-
   // Display incoming websocket messages.
   socket.onmessage = async function(event) {
     let incomingMessage = event.data;
@@ -183,18 +174,6 @@ function connectWS(port) {
       sendMessage(socket, signed);
     }
 
-    // // Read the response from the server after sending the signed data.
-    // // {"type":"ok"}
-    // if (packet.data.includes(':"ok"')) {
-    //   // This means we can send the next message.
-    //   // Send the extra packet
-    //   const outgoing = parsePacket(sign);
-
-    //   showMessage('Sending signed data back to the local server');
-    //   showMessage(`${outgoing.data}`);
-    //   sendMessage(socket, sign);
-    // }
-
     // {"debugPort":55000}
     // Check if the message contains 'debugPort'.
     if (packet.data.includes('debugPort')) {
@@ -206,7 +185,8 @@ function connectWS(port) {
       // debugPort has the port we need to send to /inspect.
       // showMessage(`debugPort: ${parsed.debugPort}`);
       // showMessage('Sending a request to /inspect');
-      // // POST `packet.data` to /inspect.
+      // POST `packet.data` to /inspect.
+      // ZZZ
       // const res = await (await postJSON('/inspect', packet.data)).arrayBuffer();
       // showMessage(bufferToString(res));
     }

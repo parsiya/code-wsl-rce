@@ -4,6 +4,10 @@ block content
   script(type='text/javascript', src='javascripts/nem.js')
   h1= title
 
+  P 
+    | This does not work anymore. You need Code client "1.62.0" or commit
+    | "b3318bc0524af3d74034b8bb8a64df0ccf35549a".
+
   h3= 'Instructions'
   ol
     li You need a machine with VS Code, WSL and the "WSL Remote" extension.
@@ -13,7 +17,7 @@ block content
     li Find the port for the extension host agent. The text should be similar to "Extension host agent listening on 64321."
     li Enter the port number and press "Connect."
     li Wait for the debug port to be printed to the page.
-    li Open a command prompt and run 'netstat -an | findstr 55000' (or the debug port from above) to see the local Node inspector instance.
+    li Open a command prompt and run 'netstat -an | findstr 55000' (or the debug port from above) to see the local Node inspector instance.|
 
   form(action='javascript:getFormData()')
     p

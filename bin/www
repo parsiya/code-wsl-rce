@@ -12,8 +12,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-// ZZZ Change it later to 443 for the demo.
-var port = '80';
+var port = '3000';
 app.set('port', port);
 
 /**

